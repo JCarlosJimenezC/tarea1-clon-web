@@ -31,7 +31,7 @@ Este proyecto consiste en clonar la sección principal de un blog real utilizand
 
 **Repositorio público:** [tarea1-clon-web](https://github.com/JCarlosJimenezC/tarea1-clon-web)
 **Link para clonar Repositorio público:** [tarea1-clon-web](https://github.com/JCarlosJimenezC/tarea1-clon-web.git)
-
+**Link github page :** [tarea1-clon-web](https://jcarlosjimenezc.github.io/tarea1-clon-web/)
 ---
 
 > _Entrega para evaluación. No se usaron frameworks ni JavaScript._
