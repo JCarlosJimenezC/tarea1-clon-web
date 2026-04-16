@@ -1,0 +1,669 @@
+/* ============================================================
+   IMPORTACIÓN DE TIPOGRAFÍA EXTERNA (Google Fonts)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ============================================================
+   VARIABLES CSS
+   Colores, tipografías y tamaños centralizados aquí
+   ============================================================ */
+:root {
+  --color-primario:   #1a1a1a;
+  --color-secundario: #4a4a4a;
+  --color-acento:     #2ecc71;   /* verde Travel */
+  --color-fondo:      #ffffff;
+  --color-fondo-alt:  #f8f8f8;
+  --color-borde:      #e0e0e0;
+  --color-muted:      #888888;
+
+  /* Colores por categoría */
+  --color-lifestyle: #7c3aed;
+  --color-health:    #e53e3e;
+  --color-gaming:    #d69e2e;
+  --color-travel:    #2ecc71;
+
+  /* Tipografía */
+  --fuente-titulo: 'Playfair Display', Georgia, serif;
+  --fuente-cuerpo: 'Source Sans 3', system-ui, sans-serif;
+
+  /* Layout */
+  --max-width:    1100px;
+  --gap-seccion:  40px;
+  --radio-borde:  8px;
+}
+
+/* ============================================================
+   RESET Y BASE — Selector de elemento: *, body, img, ul, a
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Usamos el selector universal * para resetear márgenes y paddings,
+  pero luego los estilos de body, ul, img y otros elementos específicos
+  sobrescriben este reset según la cascada y su mayor especificidad.
+*/
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--color-fondo);
+  color: var(--color-primario);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Clase accesible para labels ocultos visualmente */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   HEADER & NAVEGACIÓN
+   Selectores: elemento (header), clase (.logo), pseudo (:hover)
+   ============================================================ */
+.site-header {
+  background-color: var(--color-primario);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Usamos la clase .logo para el título del sitio en vez de h1,
+  así podemos aplicar estilos únicos sin afectar otros h1 del documento.
+  Si usáramos solo h1, la cascada podría modificar títulos en otras secciones.
+*/
+
+/*
+   DECISIÓN DE ESPECIFICIDAD (Cascada):
+   Usamos ".main-nav ul li a" (especificidad: 0-3-1) en lugar del
+   selector de elemento "a" (especificidad: 0-0-1) para restringir
+   el color gris-claro únicamente a los links del header, sin
+   alterar el resto de los enlaces del documento que heredan
+   el color --color-primario por defecto.
+*/
+.main-nav ul {
+  display: flex;
+  gap: 24px;
+}
+
+.main-nav ul li a {
+  color: #cccccc;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+/* Pseudo-selector :hover — enlaces del nav */
+.main-nav ul li a:hover {
+  color: var(--color-acento);
+}
+
+/* ============================================================
+   SECCIÓN FEATURED CARDS
+   ============================================================ */
+.featured-cards {
+  padding: var(--gap-seccion) 0;
+}
+
+.featured-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Clase .card — selector de clase */
+.card {
+  position: relative;
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Para los títulos de las cards usamos .card__title (0-2-0) en vez de h3,
+  para que solo los títulos dentro de cards tengan el tamaño y color especial,
+  sin afectar otros h3 del sitio. Así controlamos el alcance y la cascada.
+*/
+
+.card:hover .card__title {
+  text-decoration: underline;
+}
+
+.card__img-wrapper {
+  position: relative;
+}
+
+.card__img-wrapper img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* Pseudo-selector ::after — overlay oscuro sobre imagen */
+.card__img-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.card__badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.card__badge--lifestyle { background-color: var(--color-lifestyle); }
+.card__badge--health    { background-color: var(--color-health); }
+.card__badge--gaming    { background-color: var(--color-gaming); }
+
+.card__body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 12px 16px 18px;
+  color: #ffffff;
+}
+
+.card__title {
+  font-family: var(--fuente-titulo);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.card__meta {
+  font-size: 0.82rem;
+  color: #cccccc;
+}
+
+/* ============================================================
+   LAYOUT CONTENIDO + SIDEBAR
+   ============================================================ */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  padding-bottom: 60px;
+  align-items: start;
+}
+
+/* ============================================================
+   ARTÍCULO DESTACADO
+   ============================================================ */
+.featured-article {
+  margin-bottom: 48px;
+}
+
+.featured-article__img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: var(--radio-borde);
+  margin-bottom: 20px;
+}
+
+.article__category {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.article__category--travel    { color: var(--color-travel); }
+.article__category--lifestyle { color: var(--color-lifestyle); }
+.article__category--health    { color: var(--color-health); }
+.article__category--gaming    { color: var(--color-gaming); }
+
+.article__title {
+  font-family: var(--fuente-titulo);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primario);
+  margin-bottom: 8px;
+}
+
+.article__meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.article__excerpt {
+  font-size: 1rem;
+  color: var(--color-secundario);
+  margin-bottom: 10px;
+}
+
+.article__read-more {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--color-primario);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+/* Pseudo-selector :hover — "Continue Reading" */
+.article__read-more:hover {
+  opacity: 0.55;
+}
+
+/* ============================================================
+   CUADRÍCULA DE ARTÍCULOS
+   ============================================================ */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.grid-article__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radio-borde);
+  margin-bottom: 12px;
+}
+
+.grid-article__title {
+  font-family: var(--fuente-titulo);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-primario);
+}
+
+.grid-article:hover .grid-article__title {
+  text-decoration: underline;
+}
+
+.grid-article__excerpt {
+  font-size: 0.9rem;
+  color: var(--color-secundario);
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   BOTÓN "LOAD MORE"
+   Pseudo-selector :hover sobre elemento de bloque
+   ============================================================ */
+.load-more-wrapper {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.btn-load-more {
+  display: inline-block;
+  padding: 14px 48px;
+  background-color: var(--color-primario);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-load-more:hover {
+  background-color: #333333;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.sidebar__heading {
+  font-family: var(--fuente-titulo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-borde);
+}
+
+/* --- Newsletter --- */
+.newsletter {
+  background-color: var(--color-fondo-alt);
+  border-radius: var(--radio-borde);
+  padding: 32px 24px;
+}
+
+.newsletter__title {
+  font-family: var(--fuente-titulo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.newsletter__subtitle {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 28px;
+}
+
+.newsletter__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Para los botones del newsletter usamos la clase .newsletter__btn (0-1-0)
+  en vez de button (0-0-1), para asegurarnos que solo los botones del newsletter
+  tengan el color y tamaño especial, sin afectar otros botones globales.
+*/
+
+.newsletter__input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.95rem;
+  color: var(--color-primario);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+/* Pseudo-selector :focus — inputs del formulario */
+.newsletter__input:focus {
+  border-color: var(--color-primario);
+}
+
+.newsletter__btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 4px;
+  background-color: var(--color-primario);
+  color: #ffffff;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.newsletter__btn:hover {
+  background-color: #333333;
+}
+
+/* --- Categorías --- */
+.categories__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.categories__link {
+  font-size: 1rem;
+  color: var(--color-primario);
+  transition: color 0.2s ease;
+}
+
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Usamos .categories__link:hover (0-2-1) para cambiar el color solo al pasar el mouse
+  sobre los links de categorías, sin afectar otros :hover de enlaces en el sitio.
+  Así la cascada y especificidad aseguran el alcance correcto.
+*/
+
+.categories__link:hover {
+  color: var(--color-acento);
+}
+
+.categories__count {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primario);
+}
+
+/* --- Publicaciones recientes --- */
+.recent-posts__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.recent-posts__item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.recent-posts__img {
+  width: 110px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.recent-posts__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recent-posts__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primario);
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.recent-posts__title:hover {
+  color: var(--color-acento);
+}
+
+.recent-posts__date {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background-color: var(--color-primario);
+  color: #aaaaaa;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   ANIMACIONES SUAVES
+   ============================================================ */
+
+.card,
+.main-nav a,
+button,
+input,
+textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto hover en tarjetas */
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(44, 204, 113, 0.10), 0 1.5px 6px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+
+/* Efecto hover en enlaces del menú */
+.main-nav a:hover {
+  color: var(--color-acento);
+  letter-spacing: 1px;
+}
+
+/* Efecto hover en botones */
+button:hover,
+input[type="submit"]:hover {
+  background-color: var(--color-acento);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(44,204,113,0.15);
+}
+
+/* Animación de entrada para las tarjetas destacadas */
+.featured-cards__grid .card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.7s ease forwards;
+}
+.featured-cards__grid .card:nth-child(2) { animation-delay: 0.1s; }
+.featured-cards__grid .card:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN — MÓVILES
+   ============================================================ */
+@media (max-width: 900px) {
+  .featured-cards__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+  .sidebar {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 0.98rem;
+  }
+  .container {
+    padding: 0 8px;
+  }
+  .site-header__inner {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .featured-cards__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .featured-article__img,
+  .card__img-wrapper img,
+  .grid-article__img,
+  .recent-posts__img {
+    height: 160px !important;
+    min-height: 120px;
+  }
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .sidebar {
+    gap: 24px;
+  }
+  .newsletter {
+    padding: 18px 8px;
+  }
+  .site-footer {
+    font-size: 0.75rem;
+    padding: 12px 0;
+  }
+}
