@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheBlogger — Your Daily Read</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+
+    <!-- ======================================================
+         HEADER & NAV PRINCIPAL
+    ====================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="#" class="logo">TheBlogger</a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Lifestyle</a></li>
+            <li><a href="#">Health</a></li>
+            <li><a href="#">Gaming</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ======================================================
+           SECCIÓN: TARJETAS DESTACADAS (3 columnas)
+      ====================================================== -->
+      <section class="featured-cards" aria-label="Artículos destacados">
+        <div class="container featured-cards__grid">
+
+          <article class="card">
+            <div class="card__img-wrapper">
+              <!-- Reemplazar con: assets/images/card-lifestyle.jpg -->
+              <img
+                src="https://picsum.photos/seed/pragser-wildsee/600/400"
+                alt="Lago di Braies en los Dolomitas, aguas turquesas rodeadas de montañas rocosas"
+                width="600"
+                height="400"
+              />
+            </div>
+            <div class="card__body">
+              <span class="card__badge card__badge--lifestyle">LIFESTYLE</span>
+              <h2 class="card__title">The Most Popular Places to Visit in the World</h2>
+              <p class="card__meta">Top Places</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img-wrapper">
+              <!-- Reemplazar con: assets/images/card-health.jpg -->
+              <img
+                src="https://picsum.photos/seed/yoga-headstand/600/400"
+                alt="Persona realizando una postura invertida de yoga sobre una esterilla al aire libre"
+                width="600"
+                height="400"
+              />
+            </div>
+            <div class="card__body">
+              <span class="card__badge card__badge--health">HEALTH</span>
+              <h2 class="card__title">Does Exercise Help with your Productivity</h2>
+              <p class="card__meta">Health Chat</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img-wrapper">
+              <!-- Reemplazar con: assets/images/card-gaming.jpg -->
+              <img
+                src="https://picsum.photos/seed/gaming-mushroom99/600/400"
+                alt="Mano sosteniendo un hongo rojo y blanco de videojuego entre hojas verdes oscuras"
+                width="600"
+                height="400"
+              />
+            </div>
+            <div class="card__body">
+              <span class="card__badge card__badge--gaming">GAMING</span>
+              <h2 class="card__title">Can Playing Video Games Help Reduce Stress?</h2>
+              <p class="card__meta">Game Play</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ======================================================
+           CONTENIDO PRINCIPAL + BARRA LATERAL
+      ====================================================== -->
+      <div class="content-wrapper container">
+
+        <!-- MAIN CONTENT -->
+        <section class="main-content">
+
+          <!-- Artículo destacado -->
+          <article class="featured-article">
+            <!-- Reemplazar con: assets/images/featured-boat-lake.jpg -->
+            <img
+              src="https://picsum.photos/seed/boat-alpine-lake/800/500"
+              alt="Vista desde la proa de un bote de madera hacia un lago alpino rodeado de montañas nevadas"
+              class="featured-article__img"
+              width="800"
+              height="500"
+            />
+            <p class="article__category article__category--travel">TRAVEL</p>
+            <h2 class="article__title">Where to Visit on Your Next Vacation</h2>
+            <p class="article__meta">Written by Jane Doe on December 02, 2019</p>
+            <p class="article__excerpt">
+              There are thousands of places you can visit on your next vacation. In this post
+              we'll show you the top destinations to consider for your next adventure...
+            </p>
+            <a href="#" class="article__read-more">Continue Reading ↗</a>
+          </article>
+
+          <!-- Cuadrícula de artículos -->
+          <div class="article-grid">
+
+            <article class="grid-article">
+              <!-- Reemplazar con: assets/images/grid-beach.jpg -->
+              <img
+                src="https://picsum.photos/seed/bonfire-beach42/600/400"
+                alt="Grupo de amigos reunidos alrededor de una fogata en la playa durante el atardecer"
+                class="grid-article__img"
+                width="600"
+                height="400"
+              />
+              <h3 class="grid-article__title">Time for the Beach and Friends</h3>
+              <p class="grid-article__excerpt">
+                Many people live so close to amazing scenary, yet they rarely take...
+              </p>
+              <a href="#" class="article__read-more">Continue Reading ↗</a>
+            </article>
+
+            <article class="grid-article">
+              <!-- Reemplazar con: assets/images/grid-milkyway.jpg -->
+              <img
+                src="https://picsum.photos/seed/milkyway-reflection/600/400"
+                alt="Cielo nocturno con la Vía Láctea reflejada sobre un lago de montaña sereno"
+                class="grid-article__img"
+                width="600"
+                height="400"
+              />
+              <h3 class="grid-article__title">Are you Ready for an Experience?</h3>
+              <p class="grid-article__excerpt">
+                Check out these awesome places you'll want to visit as you set your...
+              </p>
+              <a href="#" class="article__read-more">Continue Reading ↗</a>
+            </article>
+
+            <article class="grid-article">
+              <!-- Reemplazar con: assets/images/grid-forest.jpg -->
+              <img
+                src="https://picsum.photos/seed/foggy-forest-kids/600/400"
+                alt="Niños corriendo y jugando entre árboles altos en un bosque envuelto en niebla"
+                class="grid-article__img"
+                width="600"
+                height="400"
+              />
+              <h3 class="grid-article__title">Take Me Back in Time</h3>
+              <p class="grid-article__excerpt">
+                How nice would that be to go back in time and enjoy the youth...
+                <a href="#" class="article__read-more">Continue Reading ↗</a>
+              </p>
+            </article>
+
+            <article class="grid-article">
+              <!-- Reemplazar con: assets/images/grid-athlete.jpg -->
+              <img
+                src="https://picsum.photos/seed/athlete-starting/600/400"
+                alt="Atleta masculino en posición de salida de carrera bajo un puente de concreto urbano"
+                class="grid-article__img"
+                width="600"
+                height="400"
+              />
+              <h3 class="grid-article__title">Here are the Best Ways to Train</h3>
+              <p class="grid-article__excerpt">
+                Learn about the best ways to train to get the most of your workout...
+                <a href="#" class="article__read-more">Continue Reading ↗</a>
+              </p>
+            </article>
+
+          </div>
+
+          <div class="load-more-wrapper">
+            <a href="#" class="btn-load-more">LOAD MORE ARTICLES</a>
+          </div>
+
+        </section>
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+
+          <!-- Newsletter -->
+          <div class="newsletter">
+            <h3 class="newsletter__title">Subscribe to our Newsletter</h3>
+            <p class="newsletter__subtitle">No Spam. Only one email per week.</p>
+            <form class="newsletter__form" action="#" method="post">
+              <label for="first-name" class="sr-only">First Name</label>
+              <input
+                type="text"
+                id="first-name"
+                name="first-name"
+                class="newsletter__input"
+                placeholder="First Name"
+                autocomplete="given-name"
+              />
+              <label for="email" class="sr-only">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="newsletter__input"
+                placeholder="Email Address"
+                autocomplete="email"
+              />
+              <button type="submit" class="newsletter__btn">SUBSCRIBE</button>
+            </form>
+          </div>
+
+          <!-- Categorías -->
+          <nav class="categories" aria-label="Categorías del blog">
+            <h3 class="sidebar__heading">Categories</h3>
+            <ul class="categories__list">
+              <li class="categories__item">
+                <a href="#" class="categories__link">Lifestyle</a>
+                <span class="categories__count">32</span>
+              </li>
+              <li class="categories__item">
+                <a href="#" class="categories__link">Health</a>
+                <span class="categories__count">41</span>
+              </li>
+              <li class="categories__item">
+                <a href="#" class="categories__link">Gaming</a>
+                <span class="categories__count">27</span>
+              </li>
+              <li class="categories__item">
+                <a href="#" class="categories__link">Travel</a>
+                <span class="categories__count">21</span>
+              </li>
+              <li class="categories__item">
+                <a href="#" class="categories__link">Food</a>
+                <span class="categories__count">15</span>
+              </li>
+              <li class="categories__item">
+                <a href="#" class="categories__link">Business</a>
+                <span class="categories__count">28</span>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Publicaciones recientes -->
+          <section class="recent-posts" aria-label="Publicaciones recientes">
+            <h3 class="sidebar__heading">Recent Posts</h3>
+            <ul class="recent-posts__list">
+
+              <li class="recent-posts__item">
+                <!-- Reemplazar con: assets/images/recent-mountains.jpg -->
+                <img
+                  src="https://picsum.photos/seed/recent-green-peak/100/80"
+                  alt="Vista aérea de cimas de montañas verdes cubiertas de niebla matutina"
+                  class="recent-posts__img"
+                  width="100"
+                  height="80"
+                />
+                <div class="recent-posts__info">
+                  <a href="#" class="recent-posts__title">Top Destinations to Visit in the World</a>
+                  <time class="recent-posts__date" datetime="2021-01-02">January 02, 2021</time>
+                </div>
+              </li>
+
+              <li class="recent-posts__item">
+                <!-- Reemplazar con: assets/images/recent-gaming.jpg -->
+                <img
+                  src="https://picsum.photos/seed/recent-gamer-neon/100/80"
+                  alt="Jugador iluminado con luz azul neón frente a pantallas de videojuego"
+                  class="recent-posts__img"
+                  width="100"
+                  height="80"
+                />
+                <div class="recent-posts__info">
+                  <a href="#" class="recent-posts__title">Experience the Future of the 3d Gaming Experience</a>
+                  <time class="recent-posts__date" datetime="2021-01-04">January 04, 2021</time>
+                </div>
+              </li>
+
+              <li class="recent-posts__item">
+                <!-- Reemplazar con: assets/images/recent-snow.jpg -->
+                <img
+                  src="https://picsum.photos/seed/recent-purple-snow/100/80"
+                  alt="Montañas cubiertas de nieve bajo un cielo morado y rosado al anochecer"
+                  class="recent-posts__img"
+                  width="100"
+                  height="80"
+                />
+                <div class="recent-posts__info">
+                  <a href="#" class="recent-posts__title">Take a Trip to The End of The World</a>
+                  <time class="recent-posts__date" datetime="2021-01-05">January 05, 2021</time>
+                </div>
+              </li>
+
+            </ul>
+          </section>
+
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- ======================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2024 TheBlogger. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
