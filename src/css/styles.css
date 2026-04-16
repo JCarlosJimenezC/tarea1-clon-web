@@ -41,6 +41,13 @@
   padding: 0;
 }
 
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Usamos el selector universal * para resetear márgenes y paddings,
+  pero luego los estilos de body, ul, img y otros elementos específicos
+  sobrescriben este reset según la cascada y su mayor especificidad.
+*/
+
 body {
   font-family: var(--fuente-cuerpo);
   background-color: var(--color-fondo);
@@ -109,6 +116,13 @@ a {
 }
 
 /*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Usamos la clase .logo para el título del sitio en vez de h1,
+  así podemos aplicar estilos únicos sin afectar otros h1 del documento.
+  Si usáramos solo h1, la cascada podría modificar títulos en otras secciones.
+*/
+
+/*
    DECISIÓN DE ESPECIFICIDAD (Cascada):
    Usamos ".main-nav ul li a" (especificidad: 0-3-1) en lugar del
    selector de elemento "a" (especificidad: 0-0-1) para restringir
@@ -155,6 +169,13 @@ a {
   overflow: hidden;
   cursor: pointer;
 }
+
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Para los títulos de las cards usamos .card__title (0-2-0) en vez de h3,
+  para que solo los títulos dentro de cards tengan el tamaño y color especial,
+  sin afectar otros h3 del sitio. Así controlamos el alcance y la cascada.
+*/
 
 .card:hover .card__title {
   text-decoration: underline;
@@ -398,6 +419,13 @@ a {
   gap: 16px;
 }
 
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Para los botones del newsletter usamos la clase .newsletter__btn (0-1-0)
+  en vez de button (0-0-1), para asegurarnos que solo los botones del newsletter
+  tengan el color y tamaño especial, sin afectar otros botones globales.
+*/
+
 .newsletter__input {
   width: 100%;
   padding: 14px 16px;
@@ -455,6 +483,13 @@ a {
   color: var(--color-primario);
   transition: color 0.2s ease;
 }
+
+/*
+  DECISIÓN DE ESPECIFICIDAD (Cascada):
+  Usamos .categories__link:hover (0-2-1) para cambiar el color solo al pasar el mouse
+  sobre los links de categorías, sin afectar otros :hover de enlaces en el sitio.
+  Así la cascada y especificidad aseguran el alcance correcto.
+*/
 
 .categories__link:hover {
   color: var(--color-acento);
